@@ -8,7 +8,7 @@ const FOOD = 'burrito'
 console.log(`${BASE_URL}foods/search?api_key=${API_KEY}&query=${FOOD}`)
 
 function fetchAPI(){
-    fetch(`${BASE_URL}${API_KEY}`, {
+    fetch(`${BASE_URL}foods/search?api_key=${API_KEY}&query=${FOOD}&pageNumber=1&pageSize=5`, {
         method: 'GET',
     })
     .then((response)=>{
