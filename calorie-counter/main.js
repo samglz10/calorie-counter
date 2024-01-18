@@ -1,15 +1,14 @@
 
-
 function testFunc(){
   alert("submitted");
 }
-
+console.log(import.meta.env.VITE_API_KEY)
 //console.log(`${BASE_URL}foods/search?api_key=${API_KEY}&query=${FOOD}`)
 
 function fetchAPI(){
   //const foodEntry = document.getElementById('food-item').value;
   const BASE_URL=' https://api.nal.usda.gov/fdc/v1/'
-  const API_KEY = import.meta.env.API_KEY;
+  const API_KEY = import.meta.env.VITE_API_KEY;
   const FOOD = 'burrito'
 
     console.log(`${BASE_URL}foods/search?api_key=${API_KEY}&query=${FOOD}`)
