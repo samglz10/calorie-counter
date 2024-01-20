@@ -1,31 +1,34 @@
 
 function testFunc(){
-  alert("submitted");
+  const foodEntry = document.getElementById('food-item').value;
+  console.log(foodEntry)
+
+  return foodEntry;
 }
-console.log(import.meta.env.VITE_API_KEY)
+
 //console.log(`${BASE_URL}foods/search?api_key=${API_KEY}&query=${FOOD}`)
 
 function fetchAPI(){
-  //const foodEntry = document.getElementById('food-item').value;
+ 
   const BASE_URL=' https://api.nal.usda.gov/fdc/v1/'
   const API_KEY = import.meta.env.VITE_API_KEY;
-  const FOOD = 'burrito'
-
-    console.log(`${BASE_URL}foods/search?api_key=${API_KEY}&query=${FOOD}`)
-    fetch(`${BASE_URL}foods/search?api_key=${API_KEY}&query=${FOOD}&pageNumber=1&pageSize=1`, {
+  const FOOD = testFunc();
+    //console.log(`${BASE_URL}foods/search?api_key=${API_KEY}&query=${FOOD}`)
+    fetch(`${BASE_URL}foods/search?api_key=${API_KEY}&query=${FOOD}&pageNumber=1&pageSinopze=1`, {
         method: 'GET',
     })
     .then((response)=>{
         return response.json();
-
     })
     .then((data)=>{
-        console.log(data)
+        //console.log(data)
        const nutrientData = data.foods[0].foodNutrients
+       console.log(nutrientData);
        //console.log(`Here is the nutrient data ${nutrientData}`)
        for(const value in nutrientData){
+        
         console.log(nutrientData[value])
-        console.log(nutrientData[value].nutrientName)
+        //console.log(nutrientData[value].nutrientName)
 
        }
     })
