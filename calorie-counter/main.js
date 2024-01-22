@@ -18,7 +18,7 @@ function fetchAPI(){
   const BASE_URL=' https://api.nal.usda.gov/fdc/v1/'
   const API_KEY = import.meta.env.VITE_API_KEY;
   const FOOD = foodEntry.value;
-    //console.log(`${BASE_URL}foods/search?api_key=${API_KEY}&query=${FOOD}`)
+    console.log(`${BASE_URL}foods/search?api_key=${API_KEY}&query=${FOOD}`)
     fetch(`${BASE_URL}foods/search?api_key=${API_KEY}&query=${FOOD}&pageNumber=1&pageSize=5`, {
         method: 'GET',
     })
@@ -28,7 +28,7 @@ function fetchAPI(){
     .then((data)=>{
         //console.log(data)
       const foodSearch = data.foods
-      console.log(data.foods)
+        console.log(data.foods)
        const nutrientData = data.foods[0].foodNutrients
        console.log(nutrientData);
        /*console.log(`Here is the nutrient data ${nutrientData}`)
@@ -38,6 +38,8 @@ function fetchAPI(){
         //console.log(nutrientData[value].nutrientName)
 
        }*/
+       const result = document.getElementById('result');
+        result.innerHTML = JSON.stringify(nutrientData);
     })
     .catch((error)=>{
         throw new Error(console.log(error))
