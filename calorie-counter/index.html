@@ -3,17 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>Calorie App</title>
+    <link rel="stylesheet" type="text/css" href="./style.css" />
   </head>
   <body>
     <div id="app">
       <label for="food-item">Let's submit some food</label>
       <input type="text" id="food-item" name="food.item" placeholder="enter food" value="">
-      <button type="submit" id="btn1">Get Food</button>
-      <ul id="food">
-        <li id="result"></li>   
-      </ul>
+        <button type="submit" id="btn1">Get Food</button>
     </div>
+    <ul id="food">
+      <li id="result"></li>   
+    </ul>
     <script type="module" src="./main.js"></script>
   </body>
 </html>
