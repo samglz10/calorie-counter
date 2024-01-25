@@ -1,7 +1,9 @@
 
   const foodEntry = document.getElementById('food-item');
   const btn1 = document.getElementById('btn1');
-  const result = document.getElementById('result');
+  const food_Name = document.getElementById('food_Name');
+  const nutrient_Name = document.getElementById('nutrient_Name');
+  
   
   btn1.addEventListener('click', (e)=>{
     e.preventDefault();
@@ -31,9 +33,18 @@ function fetchAPI(){
         console.log(data.foods)
       const nutrientData = data.foods[0].foodNutrients
         console.log(nutrientData);
-      const result = document.getElementById('result');
-      const dataString = JSON.stringify(nutrientData[0], 5);
-      result.innerHTML = dataString;
+      const nutrient_Name = document.getElementById('nutrient_Name');
+      const food_Name = document.getElementById('food_Name');
+        let protein = `${nutrientData[0].value}${nutrientData[0].unitName} ${nutrientData[0].nutrientName}`;
+        let food = `${foodSearch[0].brandOwner} ${foodSearch[0].description}`;
+        console.log(protein)
+        //nutrient_Name.innerHTML = JSON.stringify(nutrientData[0].nutrientName);
+        nutrient_Name.innerHTML = protein;
+        food_Name.innerHTML = food;
+
+        
+
+      console.log(nutrientData[0])
     })
     .catch((error)=>{
         throw new Error(console.log(error))
